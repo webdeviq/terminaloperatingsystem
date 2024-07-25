@@ -1,0 +1,81 @@
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* min-height: 10px; */
+  left: 0;
+  top: 0;
+  /* outline: 2px solid black; */
+  padding: 0 5px;
+
+  /* outline: 2px solid black; */
+  /* background-color: var(--base-white); */
+}
+
+.app-header nav {
+  /* outline: 2px solid black; */
+  width: 60%;
+
+  /* padding: 20px 0; */
+}
+
+.app-header .logos-container {
+  background-color: transparent;
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3rem;
+  height: 3rem;
+  /* outline: 2px solid red; */
+  padding-left: 1rem;
+}
+
+.app-header a,
+.app-header .nav-logout-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--base-black);
+  gap: 10px;
+  font-family: "Times New Roman", Times, serif;
+  /* border: 2px solid black; */
+}
+
+.app-header .nav-logout-button {
+  width: 4rem;
+  margin: 0 0;
+  align-self: auto;
+  background-color: transparent;
+  outline: none;
+}
+
+.logos-container a:hover,
+.logos-container button:hover {
+  border-bottom: 2px solid black;
+}
+
+.logo-container {
+  /* outline: 1px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 17rem;
+}
+
+.logo-container button {
+  align-self: center;
+  margin: 0 0;
+  width: inherit;
+  color: var(--dark-blue);
+  font-weight: bold;
+  background-color: var(--base-grey);
+  outline: 1px solid var(--dark-blue);
+  
+}

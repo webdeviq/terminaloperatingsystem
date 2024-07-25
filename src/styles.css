@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { 
+  height: 100%;
+
+}
+
+:root {
+  --base-grey: #dcdcdc;
+  --base-light-blue: #A0AECD;
+  --base-white: white;
+  --base-black: #000000;
+  --light-black: #454545;
+  --base-blue: #0000ff;
+  --dark-blue: #00008b;
+  --dark-slate-blue: #483d8b;
+  --dark-slate-grey: #2f4f4f;
+  --dark-fire-brick: #b22222;
+  --dark-indigo: #4b0082;
+  --light-sea-green: #20b2aa;
+  --dark-navy-color: #000080;
+  --light-teal-color: #008080;
+  --medium-blue: #4169e1;
+  --yellow-green: yellowgreen;
+  /*Colors for unit lifecycle state*/
+  --category-import: #FFBF00;
+  --category-export: #FF8F31;
+  --category-shipped: #FF9F00;
+  --category-returned: #FF8C00;
+  --stuff-full: #F0E68C;
+  --stuff-empty: #FFCC00;
+  --yard-active: #87CEEB;
+  --yard-out: #6495ED;
+  --yard-stored: #4169E1;
+}
+
+body {
+  background-color: var(--base-light-blue);
+  overflow-y: hidden;
+  height: 100%;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+ 
+
+

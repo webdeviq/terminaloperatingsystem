@@ -1,0 +1,59 @@
+.form {
+  outline: 1px solid white;
+  border-radius: 5px;
+  background-color: var(--light-teal-color);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  min-height: 100%;
+}
+
+.form div {
+  /* outline: 1px solid black; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* gap: 1rem; */
+}
+
+.form div label {
+  font-size: 1.5rem;
+  /* outline: 1px solid white; */
+  width: 8rem;
+  text-align: center;
+  color: var(--base-gray);
+  letter-spacing: 2px;
+}
+
+.form div input {
+  width: 12rem;
+  border-radius: 5px;
+  outline: white;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  padding: 2px 5px;
+}
+
+.form select {
+  /* outline: 1px solid red; */
+  width: 12rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.form select:focus {
+  border: none;
+  outline: none;
+}
+.form div input,
+.form div select {
+  margin-right: 50px;
+}
+
+

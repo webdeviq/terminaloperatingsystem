@@ -1,0 +1,80 @@
+.unit-history-aside {
+    background-color: var(--base-grey);
+    margin-top: 15rem;
+    position: absolute;
+    border: 1px solid var(--base-black);
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 125;
+    left: 0;
+    right: 0;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 5px;
+    gap: 20px;
+}
+
+.unit-history-aside .unit-history-container {
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    width: 100%;
+    /* position: fixed; */
+    /* position: absolute; */
+
+}
+
+.unit-history-aside .unit-history-header {
+    position: absolute;
+    /* outline: 2px solid red; */
+    display: flex;
+    align-self: center;
+    justify-self: flex-start;
+}
+
+.unit-history-header span {
+    /* font-weight: bold; */
+    font-style: unset;
+}
+
+.unit-history-aside .unit-history-header div {
+    /* outline: 2px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.unit-history-aside svg {
+    font-size: 6rem;
+}
+
+.unit-history-aside .unit-history-article-container {
+    outline: 2px solid red;
+    position: absolute;
+    width: 100%;
+    margin-top: 30px;
+}
+.unit-history-article-container .unit-history-article {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.unit-history-aside .unit-history-btn-container {
+    outline: 1px solid red;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

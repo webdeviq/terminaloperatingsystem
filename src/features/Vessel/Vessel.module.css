@@ -1,0 +1,16 @@
+.vessels-section {
+    height: 80vh;
+    width: 99%;
+    margin-top: 6rem;
+    margin-right: auto;
+    margin-left: auto;
+    overflow-y: scroll;
+    
+  }
+
+  .notification-styles .notification-header {
+    position: absolute;
+
+  }
+  
+  

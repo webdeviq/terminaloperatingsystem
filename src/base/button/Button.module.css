@@ -1,0 +1,23 @@
+.btn {
+    width: 10rem;
+    border-radius: 5px;
+    padding: 2px 0;
+    cursor: pointer;
+    border: none;
+    outline: 1px solid white;
+    align-self: flex-start;
+    margin-left: 2rem;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    background-color: var(--dark-slate-grey);
+    color: var(--base-gray);
+}
+
+.btn:hover {
+    background-color: var(--light-sea-green);
+
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+}

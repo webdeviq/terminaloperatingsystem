@@ -1,0 +1,29 @@
+.units-section {
+  height: 80vh;
+  width: 99%;
+  margin-top: 6rem;
+  margin-right: auto;
+  margin-left: auto;
+  overflow-y: scroll;
+}
+
+.no-data-notification-overlay {
+  opacity: 30%;
+  outline: none;
+  top: 150px;
+  left: 35rem;
+  right: 35rem;
+  bottom: 380px;
+  background-color: transparent;
+  
+}
+
+.no-data-notification-container {
+  width: 25rem;
+  border-radius: 5px;
+  z-index: 80;
+}
+
+.no-data-notification-container header {
+  background-color: red;
+}

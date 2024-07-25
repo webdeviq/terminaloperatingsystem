@@ -1,0 +1,70 @@
+.vessel-history-container {
+  outline: 2px solid var(--dark-slate-grey);
+  border-radius: 2px;
+  position: absolute;
+  z-index: 125;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12rem;
+  width: 40rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  height: 250px;
+}
+
+.vessel-details-history-header {
+  position: absolute;
+  background-color: var(--base-light-blue);
+  min-height: 20px;
+  padding: 5px;
+}
+
+.vessel-history-details-container {
+  outline: 1px solid var(--light-black);
+  width: 100%;
+  height: 190px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 5px;
+}
+
+.vessel-history-details-container div {
+  /* outline: 1px solid var(--base-black); */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.vessel-history-details-container .vessel-history-logo-container {
+  /* outline: 2px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+  font-size: 16px;
+}
+
+.vessel-history-svg {
+  font-size: 4rem;
+}
+
+.vessel-history-details-container .vessel-actions-container {
+  /* outline: 1px solid red; */
+  padding-left: 0;
+  padding-top: 0;
+  gap: 5px;
+}
+
+.vessel-actions-container button {
+  font-size: 1rem;
+  color: white;
+}

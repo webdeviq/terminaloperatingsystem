@@ -1,0 +1,122 @@
+.unit-table {
+  width: 100%;
+}
+.unit-table thead {
+  outline: 1px solid var(--base-black);
+  background-color: var(--base-grey);
+}
+
+.unit-table thead tr th {
+  text-align: center;
+  font-size: 0.9rem;
+  border-right: 2px solid white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.unit-table tbody tr {
+  outline: 0.5px solid var(--light-black);
+  padding-bottom: 5px;
+  text-align: center;
+}
+.unit-table tbody tr td {
+  padding: 5px 0;
+  color: var(--base-black);
+  font-size: 0.9rem;
+  border-right: 2px solid white;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.unit-table thead th:nth-child(1) {
+  width: 101px;
+}
+.unit-table thead th:nth-child(2) {
+  width: 268px;
+}
+
+.unit-table thead th:nth-child(3) {
+  width: 203px;
+}
+
+.unit-table thead th:nth-child(4) {
+  width: 204px;
+}
+
+.unit-table thead th:nth-child(5) {
+  width: 152px;
+}
+
+.unit-table thead th:nth-child(6) {
+  width: 150px;
+}
+
+.unit-table thead th:nth-child(7) {
+  width: 74px;
+}
+
+.unit-table thead th:nth-child(8) {
+  width: 152px;
+}
+
+.unit-table thead th:nth-child(9) {
+  width: 86px;
+}
+
+.unit-table thead th:nth-child(10) {
+  width: 130px;
+}
+
+.unit-table tbody tr {
+  background-color: var(--base-gray);
+}
+.unit-table tbody td.categoryimport {
+  background-color: var(--category-import);
+}
+.unit-table tbody t.categoryexport {
+  background-color: var(--category-export);
+}
+.unit-table tbody td.categoryshipped {
+  background-color: var(--category-shipped);
+}
+.unit-table tbody td.categoryreturned {
+  background-color: var(--category-returned);
+}
+
+.unit-table tbody td.stufffull {
+  background-color: var(--stuff-full);
+}
+
+.unit-table tbody td.stuffempty {
+  background-color: var(--stuff-empty);
+}
+
+.unit-table tbody td.yardactive {
+  background-color: var(--yard-active);
+}
+
+.unit-table tbody td.yardout {
+  background-color: var(--yard-out);
+}
+
+.unit-table tbody td.yardstored {
+  background-color: var(--yard-stored);
+}
+
+.unit-table tbody tr.active-unit-row {
+  background-color: var(--dark-slate-grey);
+}
+.unit-table tbody tr.active-unit-row td {
+  color: var(--base-white);
+}
+
+.no-units-message-container {
+  position: absolute;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: 10rem;
+  font-size: 2rem;
+  text-align: center;
+}

@@ -1,0 +1,45 @@
+
+.notification-container {
+    outline: 1px solid black;
+    position: absolute;
+    z-index: 125;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    gap: 1rem;
+}
+
+  .notification-container .notification-header {
+    position: absolute;
+    outline: 1px solid var(--light-black);
+    min-height: 25px;
+    background-color: var(--base-light-blue);
+    padding: 5px 0;
+    padding-left: 3px;
+}
+
+.notification-container .message-container {
+    /* outline: 2px solid red; */
+    margin-top: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.notification-container .button-container {
+    /* outline: 2px solid red; */
+    margin-top: 1rem;
+}
+
+.notification-container button {
+    margin-left: 0;
+    margin-top: 0;
+
+}
