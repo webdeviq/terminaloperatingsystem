@@ -47,6 +47,7 @@ const Unit = () => {
     async function awaitResponse() {
       await sleep();
     }
+    dispatch(showLoadingSpinner("Loading Units..."));
     awaitResponse()
       .then(() => dispatch(hideLoadingSpinner()))
       .catch((error) => console.log(error));
@@ -77,7 +78,7 @@ const Unit = () => {
     return unitTargetObject!;
   };
   const onDoubleClickShowUnitHistory = (unitGkey: string): void => {
-    dispatch(showLoadingSpinner());
+    dispatch(showLoadingSpinner("Loading Unit Details..."));
     setTimeout(() => {
       dispatch(hideLoadingSpinner());
     }, 3000);

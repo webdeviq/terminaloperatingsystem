@@ -12,8 +12,7 @@ const LoadingSpinner: React.FC<Props> = (props: Props) => {
 
   return (
     <React.Fragment>
-      <Container externalstyles={classes["loading-spinner-container"]}>
-      </Container>
+      <Container externalstyles={classes["loading-spinner-container"]}></Container>
       <p className={classes["loading-spinner-text"]}>{loadingtext}</p>
     </React.Fragment>
   );

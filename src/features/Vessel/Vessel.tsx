@@ -52,7 +52,12 @@ const Vessel = () => {
   const isDisplayEntityDetails = useAppSelector(
     (state) => state.uiSlice.isDisplayEntityHistory
   );
+  const loadingSpinnerText = useAppSelector(
+    (state) => state.loadingSpinnerSlice.loadingspinnertext
+  );
+
   useEffect(() => {
+    dispatch(showLoadingSpinner("Loading Vessels..."));
     awaitResponse()
       .then(() =>
         dispatch(
@@ -71,7 +76,7 @@ const Vessel = () => {
   const onVesselDoubleClick = (vesselGkey: string) => {
     dispatch(setActiveVesselHistoryToDisplay(vesselGkey));
     dispatch(showEntityDetails());
-    dispatch(showLoadingSpinner());
+    dispatch(showLoadingSpinner("Loading Vessel Details..."));
 
     awaitResponse()
       .catch((error) => console.log(error))
@@ -79,7 +84,7 @@ const Vessel = () => {
   };
 
   const onVesselUnitDischarge = (vesselGkey: string) => {
-    dispatch(showLoadingSpinner());
+    dispatch(showLoadingSpinner("Discharging Units..."));
     dispatch(hideEntityDetails());
     const vesselClicked = listOfVesselsInTerminal.find(
       (vessel) => vessel.gkey === vesselGkey
@@ -109,20 +114,7 @@ const Vessel = () => {
   const onHideNotification = () => {
     dispatch(hideUpdatedEntityHistory());
   };
-  let loadingSpinnerResultText = "";
-  if (isDisplayLoadingSpinner && isDisplayEntityDetails) {
-    loadingSpinnerResultText = "Loading Vessel Details...";
-  } else if (isDisplayLoadingSpinner && !isDisplayEntityDetails) {
-    loadingSpinnerResultText = "Loading Vessels...";
-  } else if (
-    isDisplayEntityDetails &&
-    !isDisplayEntityDetails &&
-    isDisplayEntityDetails
-  ) {
-    loadingSpinnerResultText = "Discharging Units...";
-  } else {
-    loadingSpinnerResultText = "";
-  }
+  
   const showVesselHistory = !isDisplayLoadingSpinner && isDisplayEntityDetails;
   const showVesselUnitsDischargedNotification =
     isDisplayUpdatedEntityNotification;
@@ -155,7 +147,7 @@ const Vessel = () => {
       )}
       {isDisplayLoadingSpinner && (
         <Overlay>
-          <LoadingSpinner loadingtext={loadingSpinnerResultText} />
+          <LoadingSpinner loadingtext={loadingSpinnerText} />
         </Overlay>
       )}
       <section className={classes["vessels-section"]}>
