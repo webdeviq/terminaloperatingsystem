@@ -42,10 +42,9 @@ export const vesselSlice = createSlice({
 
       if (!passedThroughVesselToUpdate) return;
 
-      const passedThroughVesselToUpdateIndex: number =
-        state.listofvessels.findIndex(
-          (element) => passedThroughVesselToUpdate.gkey === element.gkey
-        );
+      const passedThroughVesselToUpdateIndex = state.listofvessels.findIndex(
+        (element) => passedThroughVesselToUpdate.gkey === element.gkey
+      );
       const result: Vessel = Object.assign(passedThroughVesselToUpdate, {
         ...action.payload,
       });
@@ -111,6 +110,7 @@ export const vesselSlice = createSlice({
 });
 
 export const {
+  updateVesselState,
   addVessel,
   removeVessel,
   setSelectedRowObject,

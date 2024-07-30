@@ -3,6 +3,7 @@ import Button from "../../../base/button/Button";
 import Container from "../../../base/form/Container";
 import Header from "../../../base/navigation/Header";
 import { RiShip2Line } from "react-icons/ri";
+
 // Css
 import classes from "./VesselHistory.module.css";
 // Models.
@@ -55,7 +56,7 @@ const VesselHistory: React.FC<Props> = (props: Props) => {
           <span>Berth: {vesselHistorySelectedEntity.berth}</span>
           <span>
             Units Discharged:{" "}
-            {vesselHistorySelectedEntity.isvessledischarged ? "true" : "false"}
+            {vesselHistorySelectedEntity.isvesseldischarged ? "true" : "false"}
           </span>
         </Container>
         <Container externalstyles={classes["vessel-actions-container"]}>

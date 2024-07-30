@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 // redux imports.
 import { useAppDispatch, useAppSelector } from "../../store/index.ts";
@@ -10,10 +10,11 @@ import { setAmountOfEntityQty } from "../../store/footer/footerSlice.ts";
 import {
   showEntityDetails,
   hideEntityDetails,
-  showUpdatedEntityHistory,
-  hideUpdatedEntityHistory,
+  showGeneralNotification,
+  hideGeneralNotification,
 } from "../../store/ui/uiSlice.ts";
 import {
+  updateVesselState,
   setActiveVesselHistoryToDisplay,
   setActiveVesselRowObjectToHighlight,
 } from "../../store/vessel/vesselSlice.ts";
@@ -43,8 +44,8 @@ const Vessel = () => {
   const isDisplayLoadingSpinner = useAppSelector(
     (state) => state.loadingSpinnerSlice.displayloadingspinner
   );
-  const isDisplayUpdatedEntityNotification = useAppSelector(
-    (state) => state.uiSlice.isUpdatedEntityNotification
+  const isDisplayGeneralNotification = useAppSelector(
+    (state) => state.uiSlice.isGeneralNotificationDisplayed
   );
   const vesselHistorySelectedEntity = useAppSelector(
     (state) => state.vesselSlice.activeVesselHistoryToDisplay
@@ -55,9 +56,13 @@ const Vessel = () => {
   const loadingSpinnerText = useAppSelector(
     (state) => state.loadingSpinnerSlice.loadingspinnertext
   );
+  const [isVesselAlreadyDischarged, setIsVesselAlreadyDischarged] =
+    useState<boolean>(false);
 
   useEffect(() => {
     dispatch(showLoadingSpinner("Loading Vessels..."));
+    // runs after the component mounts.
+
     awaitResponse()
       .then(() =>
         dispatch(
@@ -84,19 +89,32 @@ const Vessel = () => {
   };
 
   const onVesselUnitDischarge = (vesselGkey: string) => {
-    dispatch(showLoadingSpinner("Discharging Units..."));
+    dispatch(showLoadingSpinner("Loading Result..."));
     dispatch(hideEntityDetails());
     const vesselClicked = listOfVesselsInTerminal.find(
       (vessel) => vessel.gkey === vesselGkey
     );
-
-    if (vesselClicked) {
-      dispatch(setUnitEntityDataList(vesselClicked.loadlist));
+    // if the vessel is already discharged and there is a vessel entity.
+    // than -> set the isvesseldischarged to true and hide loading spinner and return.,
+    if (vesselClicked && vesselClicked.isvesseldischarged) {
+      console.log("Made it ");
+      setIsVesselAlreadyDischarged(true);
+      awaitResponse()
+        .then(() => dispatch(showGeneralNotification()))
+        .finally(() => dispatch(hideLoadingSpinner()));
     }
-
-    awaitResponse()
-      .then(() => dispatch(showUpdatedEntityHistory()))
-      .finally(() => dispatch(hideLoadingSpinner()));
+    if (vesselClicked && !vesselClicked.isvesseldischarged) {
+      dispatch(setUnitEntityDataList(vesselClicked.loadlist));
+      dispatch(
+        updateVesselState({
+          isvesseldischarged: true,
+          gkey: vesselClicked.gkey,
+        })
+      );
+      awaitResponse()
+        .then(() => dispatch(showGeneralNotification()))
+        .finally(() => dispatch(hideLoadingSpinner()));
+    }
   };
 
   const onVesselRowClick = (unitGkey: string) => {
@@ -111,19 +129,34 @@ const Vessel = () => {
   const onHideVesselHistory = () => {
     dispatch(hideEntityDetails());
   };
+
   const onHideNotification = () => {
-    dispatch(hideUpdatedEntityHistory());
+    dispatch(hideGeneralNotification());
   };
-  
+
   const showVesselHistory = !isDisplayLoadingSpinner && isDisplayEntityDetails;
+
+  const showUnitsAlreadyDischargedNotification =
+    isVesselAlreadyDischarged && isDisplayGeneralNotification; // units already discharged.
+
   const showVesselUnitsDischargedNotification =
-    isDisplayUpdatedEntityNotification;
-  // const showLoadingSpinnerOrNot =
-  //   isDisplayLoadingSpinner && isDisplayEntityDetails;
-  //const showEntityHistoryDetails = displayEntityHistory;
+    isDisplayGeneralNotification && !isVesselAlreadyDischarged; // units succesfully discharged.
+
   return (
     <React.Fragment>
       <AppNavigation />
+      {showUnitsAlreadyDischargedNotification && (
+        <Overlay>
+          <Notification
+            buttonized={true}
+            btnmessage="Close"
+            headerinfo="Notification"
+            message="Units already discharged!"
+            onClickNotificationAction={onHideNotification}
+            externalstyles={classes["notification-styles"]}
+          />
+        </Overlay>
+      )}
       {showVesselUnitsDischargedNotification && (
         <Overlay>
           <Notification

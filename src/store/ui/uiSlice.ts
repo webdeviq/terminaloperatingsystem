@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 type EntityHistory = {
   isDisplayEntityHistory: boolean;
-  isUpdatedEntityNotification: boolean;
+  isGeneralNotificationDisplayed: boolean;
 };
 
 const initialState: EntityHistory = {
   isDisplayEntityHistory: false,
-  isUpdatedEntityNotification: false,
+  isGeneralNotificationDisplayed: false,
 };
 
 /**  the idea behind this slice is to have reducers or actions to show
@@ -18,17 +18,16 @@ export const uiSlice = createSlice({
   initialState: initialState,
   reducers: {
     showEntityDetails(state) {
-      console.log("Triggered Show Unit History");
       state.isDisplayEntityHistory = true;
     },
     hideEntityDetails(state) {
       state.isDisplayEntityHistory = false;
     },
-    showUpdatedEntityHistory(state) {
-      state.isUpdatedEntityNotification = true;
+    showGeneralNotification(state) {
+      state.isGeneralNotificationDisplayed = true;
     },
-    hideUpdatedEntityHistory(state) {
-      state.isUpdatedEntityNotification = false;
+    hideGeneralNotification(state) {
+      state.isGeneralNotificationDisplayed = false;
     },
   },
 });
@@ -36,6 +35,6 @@ export const uiSlice = createSlice({
 export const {
   showEntityDetails,
   hideEntityDetails,
-  showUpdatedEntityHistory,
-  hideUpdatedEntityHistory,
+  showGeneralNotification,
+  hideGeneralNotification,
 } = uiSlice.actions;

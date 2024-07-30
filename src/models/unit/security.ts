@@ -7,9 +7,9 @@
 */
 
 export interface Security {
-  timein: Date;
-  timeout?: Date;
-  daysInYard: () => number;
+  timein: string;
+  timeout?: string;
+  daysInYard: number;
 
 }
 

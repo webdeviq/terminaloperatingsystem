@@ -17,6 +17,7 @@
   outline: 0.5px solid var(--light-black);
   padding-bottom: 5px;
   text-align: center;
+  cursor: pointer;
 }
 .unit-table tbody tr td {
   padding: 5px 0;

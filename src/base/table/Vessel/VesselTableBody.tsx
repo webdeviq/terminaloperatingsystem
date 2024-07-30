@@ -33,10 +33,10 @@ const VesselTableBody: React.FC<Omit<BaseTableProps, "entity">> = (
       <td>{vessel.loadlist.length}</td>
       <td
         className={
-          classes[selectVesselDischargeState(vessel.isvessledischarged)]
+          classes[selectVesselDischargeState(vessel.isvesseldischarged)]
         }
       >
-        {vessel.isvessledischarged ? "true" : "false"}
+        {vessel.isvesseldischarged ? "true" : "false"}
       </td>
       <td className={classes[selectVesselDepartedState(vessel.isvesseldocked)]}>
         {vessel.isvesseldocked ? "true" : "false"}

@@ -2,7 +2,7 @@ import { LifeCycle } from "./lifecycle.ts";
 import { UnitMoveHistory } from "./unitmovehistory.ts";
 import { ILocation } from "./yard.ts";
 
-type UnitType = "Reefer" | "Dry";
+type UnitType = "reefer" | "dry";
 type VesselOperator = "YANG MING" | "GULF" | "EMIRATES";
 type UnitOwner = "CMA" | "HL" | "OOL" | "HILTON" | "ESL";
 type Entity = "Unit" | "Truck" | "Train";
@@ -30,10 +30,9 @@ export interface Unit {
   unitowner: UnitOwner;
   unitnumber: string;
   type: UnitType;
-  lifecycle?: LifeCycle;
   location?: ILocation;
+  lifecycle?: LifeCycle;
+
   isunitrowselected: boolean;
   unitmovehistory?: UnitMoveHistory;
 }
-
-

@@ -8,7 +8,7 @@ interface Props {
 
 const LoadingSpinner: React.FC<Props> = (props: Props) => {
   const { loadingtext } = props;
-  console.log("Loading Spinner Mounted");
+  
 
   return (
     <React.Fragment>

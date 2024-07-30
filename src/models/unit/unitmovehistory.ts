@@ -23,7 +23,7 @@ export interface UnitMoveHistory {
   recorder: UnitEventEmployee;
   source: UnitEventSource;
   destination: UnitEventDestination;
-  dateofmove: Date;
+  dateofmove: string;
 }
 
 

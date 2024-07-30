@@ -28,7 +28,7 @@ export interface Vessel {
   countryofdestination: string;
   portofdischarge: string;
   berth: Berth;
-  isvessledischarged: boolean;
+  isvesseldischarged: boolean;
   isvesseldocked: boolean;
   isvesselrowselected: boolean;
 }
@@ -51,7 +51,7 @@ export const VESSELS: Vessel[] = [
     vesselvisit: "EVL01",
     loadlist: UNITS,
     isvesseldocked: true,
-    isvessledischarged: false,
+    isvesseldischarged: false,
     isvesselrowselected: false,
   },
 ];

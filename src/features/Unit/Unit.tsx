@@ -10,6 +10,7 @@ import classes from "./Unit.module.css";
 
 import { useAppDispatch, useAppSelector } from "../../store/index.ts";
 import {
+  setActiveUnitHistoryToDisplay,
   // updateUnitDataList,
   setSelectedRowObjectToHiglight,
 } from "../../store/unit/unitSlice.ts";
@@ -23,7 +24,6 @@ import {
 } from "../../store/ui/loadingSpinnerSlice.ts";
 import { setAmountOfEntityQty } from "../../store/footer/footerSlice.ts";
 import { unitTableHeaderData } from "../../models/unit/unit.ts";
-import { Unit as UnitEntity } from "../../models/unit/unit.ts";
 
 import UnitHistory from "./UnitHistory/UnitHistory.tsx";
 
@@ -33,11 +33,13 @@ const Unit = () => {
   const showUnitHistoryBool = useAppSelector(
     (state) => state.uiSlice.isDisplayEntityHistory
   );
-  const unitEntityToDisplayHistory = useAppSelector(
-    (state) => state.unitSlice.activeUnitHistoryToDisplay
-  );
+
+  
   const isDisplayLoadingSpinner = useAppSelector(
     (state) => state.loadingSpinnerSlice.displayloadingspinner
+  );
+  const loadingSpinnerText = useAppSelector(
+    (state) => state.loadingSpinnerSlice.loadingspinnertext
   );
 
   useEffect(() => {
@@ -69,21 +71,13 @@ const Unit = () => {
     dispatch(setSelectedRowObjectToHiglight(clickedUnitRowObject));
   };
 
-  const findSelectedUnitRowObjectHelper = (
-    unitGkey: string
-  ): UnitEntity | undefined => {
-    const unitTargetObject = unitsListSliceData.find(
-      (element) => element.gkey == unitGkey
-    );
-    return unitTargetObject!;
-  };
   const onDoubleClickShowUnitHistory = (unitGkey: string): void => {
     dispatch(showLoadingSpinner("Loading Unit Details..."));
     setTimeout(() => {
       dispatch(hideLoadingSpinner());
     }, 3000);
     dispatch(
-      setSelectedRowObjectToHiglight(findSelectedUnitRowObjectHelper(unitGkey)!)
+      setActiveUnitHistoryToDisplay(unitGkey)
     );
     dispatch(showEntityDetails());
   };
@@ -101,7 +95,6 @@ const Unit = () => {
       {loadingHistoryFalseAndShowUnitHistoryTrue && (
         <Overlay>
           <UnitHistory
-            unittodisplay={unitEntityToDisplayHistory!}
             onCloseUnitHistory={onCloseUnitHistory}
           />
         </Overlay>
@@ -109,7 +102,7 @@ const Unit = () => {
 
       {isDisplayLoadingSpinner && (
         <Overlay>
-          <LoadingSpinner loadingtext="Loading Units..." />
+          <LoadingSpinner loadingtext={loadingSpinnerText} />
         </Overlay>
       )}
       {unitsListSliceData.length <= 0 && (

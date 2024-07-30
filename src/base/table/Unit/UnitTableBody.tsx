@@ -32,7 +32,7 @@ const UnitTableBody: React.FC<Omit<BaseTableProps, "entity">> = (
   const transformedUnitList = unitEntityList.map((unit) => {
     return setUnitLifeCycleOnDischargeFromVessel(unit);
   });
-  console.log(transformedUnitList);
+
   return transformedUnitList.map(
     (
       unit // cannot assign to readonly gkey...

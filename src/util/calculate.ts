@@ -8,7 +8,7 @@ import { calculateDaysInYard } from "./Dates/dates.ts";
 export const unitRequiresPower = (container: Unit): RequiresPower => {
   if (
     container.lifecycle!.yardstate === "Active" &&
-    container.type === "Reefer"
+    container.type === "reefer"
   ) {
     return "Yes";
   } else {
@@ -22,17 +22,13 @@ export const unitRequiresPower = (container: Unit): RequiresPower => {
 
 export const setUnitLifeCycleOnDischargeFromVessel = (unit: Unit) => {
   const { ...unitdata } = unit;
-  console.log("Before");
-
-  console.log(unitdata);
   unitdata.lifecycle = {
     category: "Import",
     security: {
-      timein: new Date(2024, 5, 29),
-      daysInYard: function () {
-        return calculateDaysInYard();
-      },
+      timein: new Date(2024, 5, 29).toLocaleString(),
+      daysInYard: calculateDaysInYard(),
     },
+
     stuffstate: "Full",
     yardstate: "Active",
   };
@@ -40,12 +36,11 @@ export const setUnitLifeCycleOnDischargeFromVessel = (unit: Unit) => {
     block: "A1",
   };
   unitdata.unitmovehistory = {
-    dateofmove: new Date(2024, 5, 29),
+    dateofmove: new Date(2024, 5, 29).toLocaleString(),
     destination: "Yard",
     movetype: "Unit Discharged",
     recorder: EMPLOYEES[0],
     source: MACHINES[0],
   };
-  console.log(unitdata);
-  return Object.assign({ ...unit }, unitdata);
+  return Object.assign({ ...unit }, { ...unitdata });
 };

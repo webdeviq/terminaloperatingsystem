@@ -16,7 +16,7 @@ const Modal: React.FC<ModalProps> = (props: ModalProps) => {
       : `${classes["overlay-layer"]}`
   }`;
 
-  console.log(props.externalstyles);
+
   return <div onClick={props.onClick} className={modalstyles}></div>;
 };
 

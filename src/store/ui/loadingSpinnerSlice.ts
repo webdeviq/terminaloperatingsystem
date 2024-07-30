@@ -15,12 +15,11 @@ export const loadingSpinnerSlice = createSlice({
   initialState: initialState,
   reducers: {
     showLoadingSpinner(state, action: PayloadAction<string>) {
-      console.log("Show loading spinner ran");
+      
       state.displayloadingspinner = true;
       state.loadingspinnertext = action.payload;
     },
     hideLoadingSpinner(state) {
-      console.log("Hide loading spinner ran");
       state.displayloadingspinner = false;
     },
   },

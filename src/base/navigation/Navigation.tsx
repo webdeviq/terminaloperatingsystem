@@ -8,6 +8,7 @@ import { FaFileInvoice } from "react-icons/fa6";
 import { GiCrane } from "react-icons/gi";
 import { FiLogOut } from "react-icons/fi";
 import { MdHistory } from "react-icons/md";
+import { RiShip2Line } from "react-icons/ri";
 import classes from "./Navigation.module.css";
 import Button from "../button/Button";
 
@@ -27,6 +28,10 @@ const Navigation: React.FC<Props> = (props: Props) => {
     <Header externalstyles={navStyles}>
       <nav className={classes["main-nav"]}>
         <Container externalstyles={classes["logos-container"]}>
+          <Link to="/vessels">
+            <RiShip2Line />
+            <span>Vessels</span>
+          </Link>
           <Link to="/unitsview">
             <LuContainer />
             <span>Units</span>

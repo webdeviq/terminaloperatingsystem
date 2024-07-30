@@ -1,14 +1,15 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Unit } from "../../models/unit/unit.ts";
+import { setUnitLifeCycleOnDischargeFromVessel } from "../../util/calculate.ts";
 
 interface IUnitInitialState {
   data: Unit[];
-  activeUnitHistoryToDisplay: Unit | null;
+  activeUnitHistoryToDisplay: Partial<Unit>;
 }
 
 const initialState: IUnitInitialState = {
   data: [],
-  activeUnitHistoryToDisplay: null,
+  activeUnitHistoryToDisplay: {},
 };
 
 export const unitSlice = createSlice({
@@ -22,8 +23,10 @@ export const unitSlice = createSlice({
       }
     },
     setUnitEntityDataList(state, action: PayloadAction<Unit[]>) {
-      console.log("Setting Data");
-      state.data = [...action.payload];
+      const transformedUnitList = action.payload.map((element) =>
+        setUnitLifeCycleOnDischargeFromVessel(element)
+      );
+            state.data = [...transformedUnitList];
     },
     setSelectedRowObjectToHiglight(state, action: PayloadAction<Unit>) {
       const selectedUnitRowObjectTemporary = state.data.find(
@@ -62,4 +65,5 @@ export const {
   pushSingleUnitEntityToDataList,
   setSelectedRowObjectToHiglight,
   setUnitEntityDataList,
+  setActiveUnitHistoryToDisplay,
 } = unitSlice.actions;
