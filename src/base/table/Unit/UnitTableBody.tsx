@@ -27,44 +27,43 @@ const UnitTableBody: React.FC<Omit<BaseTableProps, "entity">> = (
     onActivateEntityRow,
     onDoubleClickEntity,
     onRightClickEntity,
+    manualListOfUnitsToSearch,
   } = props;
-
-  const transformedUnitList = unitEntityList.map((unit) => {
+  const unitsPassedArray = manualListOfUnitsToSearch
+    ? manualListOfUnitsToSearch
+    : unitEntityList;
+  const transformedUnitList = unitsPassedArray.map((unit) => {
     return setUnitLifeCycleOnDischargeFromVessel(unit);
   });
 
-  return transformedUnitList.map(
-    (
-      unit // cannot assign to readonly gkey...
-    ) => (
-      <tr
-        className={unit.isunitrowselected ? classes["active-unit-row"] : ""}
-        key={unit.gkey}
-        onClick={() => onActivateEntityRow(unit.gkey)}
-        onContextMenu={onRightClickEntity}
-        onDoubleClick={() => onDoubleClickEntity(unit.gkey)}
+  return transformedUnitList.map((unit) => (
+    <tr
+      className={unit.isunitrowselected ? classes["active-unit-row"] : ""}
+      key={unit.gkey}
+      onClick={() => onActivateEntityRow!(unit.gkey)}
+      onContextMenu={onRightClickEntity}
+      onDoubleClick={() => onDoubleClickEntity!(unit.gkey)}
+    >
+      <td>{unit.kind}</td>
+      <td>{unit.unitnumber}</td>
+      <td>{unit.unitowner}</td>
+      <td
+        className={classes[selectUnitCategoryStyle(unit.lifecycle!.category)]}
       >
-        <td>{unit.kind}</td>
-        <td>{unit.unitnumber}</td>
-        <td>{unit.unitowner}</td>
-        <td
-          className={classes[selectUnitCategoryStyle(unit.lifecycle!.category)]}
-        >
-          {unit.lifecycle!.category}
-        </td>
-        <td className={classes[selectStuffStyle(unit.lifecycle!.stuffstate)]}>
-          {unit.lifecycle!.stuffstate}
-        </td>
-        <td className={classes[selectYardStyle(unit.lifecycle!.yardstate)]}>
-          {unit.lifecycle!.yardstate}
-        </td>
-        <td>{unit.location!.block}</td>
-        <td>{unit.type}</td>
-        <td>{unitRequiresPower(unit)}</td>
-        <td>{unit.vesseloperator}</td>
-      </tr>
-    )
-  );
+        {unit.lifecycle!.category}
+      </td>
+      <td className={classes[selectStuffStyle(unit.lifecycle!.stuffstate)]}>
+        {unit.lifecycle!.stuffstate}
+      </td>
+      <td className={classes[selectYardStyle(unit.lifecycle!.yardstate)]}>
+        {unit.lifecycle!.yardstate}
+      </td>
+      <td>{unit.location!.block}</td>
+      <td>{unit.type}</td>
+      <td>{unitRequiresPower(unit)}</td>
+      <td>{unit.vesseloperator}</td>
+    </tr>
+  ));
 };
 
 export default UnitTableBody;

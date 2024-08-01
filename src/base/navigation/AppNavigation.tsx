@@ -58,7 +58,7 @@ const AppNavigation = () => {
             </Link>
           )}
 
-          <Button styles={classes["nav-logout-button"]}>
+          <Button externalstyles={classes["nav-logout-button"]}>
             <FiLogOut />
             <span>Logout</span>
           </Button>

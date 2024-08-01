@@ -76,7 +76,7 @@ const Login = () => {
       <Container externalstyles={classes["login-form-container"]}>
         <Form onSubmit={submitForm}>
           <Input
-            styles={usernameClasses}
+            externalstyles={usernameClasses}
             labeltext="username"
             element="input"
             type="text"
@@ -85,7 +85,7 @@ const Login = () => {
             value={username}
           />
           <Input
-            styles={roleClasses}
+            externalstyles={roleClasses}
             labeltext="role"
             name="role"
             id="role"

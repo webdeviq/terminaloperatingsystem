@@ -1,0 +1,26 @@
+.find-unit-form {
+    width: 30rem;
+    flex-direction: row;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding: 10px 10px;
+    outline: transparent;
+}
+
+.find-unit-form div {
+    width: 14rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.find-unit-form div input {
+    width: 200px;
+}
+
+.find-unit-btn {
+    margin-left: 0;
+    margin-top: 0;
+    width: 8rem;
+
+}

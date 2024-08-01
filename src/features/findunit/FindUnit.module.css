@@ -1,0 +1,11 @@
+.find-unit-section {
+    /* outline : 3px solid black; */
+    margin-top: 8rem;
+    /* padding: 10rem 0; */
+}
+
+.no-units-notification {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}

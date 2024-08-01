@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Unit } from "../../models/unit/unit";
 
 
 export type TableBodyEntityType =
@@ -16,18 +17,19 @@ export interface TableProps {
 export interface TableHeadProps {
   tableheadelements: string[];
   externalstyles?: string;
+
 }
 
 export interface TableBodyProps {
   entity: TableBodyEntityType;
   externalstyles?: string;
-  
+  manualListOfUnitsToSearch?: Unit[];
 }
 
 export interface EntityTableBodyProps extends TableBodyProps {
-  onActivateEntityRow: (unitGkey: string) => void;
-  onDoubleClickEntity: (unitGkey: string) => void;
-  onRightClickEntity: () => void;
+  onActivateEntityRow?: (unitGkey: string) => void;
+  onDoubleClickEntity?: (unitGkey: string) => void;
+  onRightClickEntity?: () => void;
 }
 
 export type UnitTableProps = TableHeadProps &

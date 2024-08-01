@@ -5,9 +5,11 @@ import { EntityTableBodyProps } from "./table.ts";
 import React from "react";
 import VesselTableBody from "./Vessel/VesselTableBody.tsx";
 import UnitTableBody from "./Unit/UnitTableBody.tsx";
+import { Unit } from "../../models/unit/unit.ts";
 
 export type BaseTableProps = EntityTableBodyProps & {
   classes: CSSModuleClasses;
+  manualListOfUnitsToSearch?: Unit[];
 };
 
 type TableBody = BaseTableProps & ComponentPropsWithoutRef<"tbody">;
@@ -20,6 +22,7 @@ const TableBody: React.FC<TableBody> = (props: TableBody) => {
     onDoubleClickEntity,
     classes,
     onRightClickEntity,
+    manualListOfUnitsToSearch,
   } = props;
 
   let elementResult: ReactNode;
@@ -27,6 +30,7 @@ const TableBody: React.FC<TableBody> = (props: TableBody) => {
   if (entity === "unit") {
     elementResult = (
       <UnitTableBody
+        manualListOfUnitsToSearch={manualListOfUnitsToSearch}
         classes={classes}
         onActivateEntityRow={onActivateEntityRow}
         onDoubleClickEntity={onDoubleClickEntity}

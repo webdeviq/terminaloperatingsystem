@@ -8,13 +8,14 @@
 }
 
 .no-data-notification-overlay {
+
   opacity: 30%;
   outline: none;
   top: 150px;
   left: 35rem;
   right: 35rem;
   bottom: 380px;
-  background-color: transparent;
+  background-color: var(--base-light-blue);
   
 }
 

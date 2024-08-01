@@ -52,7 +52,7 @@ const Navigation: React.FC<Props> = (props: Props) => {
             <MdHistory />
             <span>History</span>
           </Link>
-          <Button styles={classes["nav-logout-button"]}>
+          <Button externalstyles={classes["nav-logout-button"]}>
             <FiLogOut />
             <span>Logout</span>
           </Button>

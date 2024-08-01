@@ -1,19 +1,18 @@
 import { ComponentPropsWithoutRef } from "react";
 import Container from "./Container";
 
-
 import { IRolesList } from "../../models/login/login";
 
 type InputProps = {
   element: "input";
   labeltext: string;
-  styles: string;
+  externalstyles: string;
 } & ComponentPropsWithoutRef<"input">;
 
 type SelectProps = {
   element: "select";
   labeltext: string;
-  styles: string;
+  externalstyles: string;
 } & ComponentPropsWithoutRef<"select">;
 
 // type Props = {
@@ -27,7 +26,7 @@ type SelectProps = {
 const Input: React.FC<InputProps | SelectProps> = (
   props: InputProps | SelectProps
 ) => {
-  const { labeltext, styles } = props;
+  const { labeltext, externalstyles: styles } = props;
   const containerStyle = `${styles ? styles : ""}`;
 
   if (props.element === "input") {
@@ -39,7 +38,7 @@ const Input: React.FC<InputProps | SelectProps> = (
       </Container>
     );
   }
-  const { name, id,  ...other } = props;
+  const { name, id, ...other } = props;
   return (
     <Container externalstyles={containerStyle}>
       <label htmlFor={labeltext}>{labeltext}</label>

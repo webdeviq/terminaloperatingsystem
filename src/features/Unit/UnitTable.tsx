@@ -13,12 +13,14 @@ const UnitTable: React.FC<UnitTableProps> = (props: UnitTableProps) => {
     tableheadelements,
     onActivateEntityRow: onActivateUnitRow,
     onDoubleClickEntity: selectUnitHistoryRowObject,
+    manualListOfUnitsToSearch,
   } = props;
 
   return (
     <Table externalstyles={classes["unit-table"]}>
       <TableHead tableheadelements={tableheadelements} />
       <TableBody
+        manualListOfUnitsToSearch={manualListOfUnitsToSearch}
         entity={entity}
         classes={classes}
         onActivateEntityRow={onActivateUnitRow}

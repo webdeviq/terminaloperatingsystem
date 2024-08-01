@@ -4,6 +4,7 @@ import App from "../layout/App";
 import Unit from "../features/Unit/Unit.tsx";
 import Homepage from "../features/homepage/Homepage.tsx";
 import Vessel from "../features/Vessel/Vessel.tsx";
+import FindUnit from "../features/findunit/FindUnit.tsx";
 // testing this change.
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
       { path: "employees", element: <Homepage /> },
       { path: "machinery", element: <Homepage /> },
       { path: "finance", element: <Homepage /> },
+      {path: "history", element: <FindUnit/>}
     ],
   },
 ]);

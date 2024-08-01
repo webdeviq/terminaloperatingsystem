@@ -4,11 +4,11 @@ import classes from "./Form.module.css";
 
 type Props = {
   children: ReactNode;
-  style?: string;
+  externalstyles?: string;
 } & ComponentPropsWithoutRef<"form">;
 
 const Form: React.FC<Props> = (props: Props) => {
-  const { children, style, ...other } = props;
+  const { children, externalstyles: style, ...other } = props;
   const formstyle = `${
     style ? `${classes["form"]} ${style}` : `${classes["form"]}`
   }`;
