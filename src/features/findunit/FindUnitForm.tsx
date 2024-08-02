@@ -21,6 +21,7 @@ const FindUnitForm: React.FC<Props> = (props: Props) => {
   const submitFormHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onHandleSubmitSearch(unitId);
+    setUnitId("");
   };
 
   return (

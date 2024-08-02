@@ -4,10 +4,9 @@ import { useLocation } from "react-router-dom";
 import Header from "./Header";
 import Container from "../form/Container";
 import { LuContainer } from "react-icons/lu";
-import { IoPerson } from "react-icons/io5";
-import { FaFileInvoice } from "react-icons/fa6";
-import { GiCrane, GiShipBow } from "react-icons/gi";
-import { FiLogOut } from "react-icons/fi";
+
+import { GiShipBow } from "react-icons/gi";
+
 import { MdHistory } from "react-icons/md";
 
 import classes from "./AppNavigation.module.css";
@@ -27,22 +26,11 @@ const AppNavigation = () => {
               <span>Units</span>
             </Link>
           )}
-          {pathname != "/employees" && (
-            <Link to="/employees">
-              <IoPerson />
-              <span>Employees</span>
-            </Link>
-          )}
-          {pathname != "/machinery" && (
-            <Link to="/machinery">
-              <GiCrane />
-              <span>Machinery</span>
-            </Link>
-          )}
-          {pathname != "/finance" && (
-            <Link to="/finance">
-              <FaFileInvoice />
-              <span>Finance</span>
+
+          {pathname != "/vessels" && (
+            <Link to="/vessels">
+              <GiShipBow />
+              <span>Vessels</span>
             </Link>
           )}
           {pathname != "/history" && (
@@ -51,21 +39,10 @@ const AppNavigation = () => {
               <span>History</span>
             </Link>
           )}
-          {pathname != "/vessels" && (
-            <Link to="/vessels">
-              <GiShipBow />
-              <span>Vessels</span>
-            </Link>
-          )}
-
-          <Button externalstyles={classes["nav-logout-button"]}>
-            <FiLogOut />
-            <span>Logout</span>
-          </Button>
         </Container>
       </nav>
       <Container externalstyles={classes["logo-container"]}>
-        <Button onClick={() => console.log("Clicked")}>
+        <Button onClick={() => console.log("Terminal Operating System")}>
           <span>Terminal Operating System</span>
         </Button>
       </Container>
