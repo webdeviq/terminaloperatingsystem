@@ -15,7 +15,7 @@ Terminal Operating System Teminology
 4) History
     A search tab or page is used to search for specific units by there container number.
 
-How To Use My App
+How To Use The App
 
 1) Discharge Units
     On the vessels page with this route /vessels, one vessel is already uploaded for you to try out.
