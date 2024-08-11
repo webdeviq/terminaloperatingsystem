@@ -5,12 +5,12 @@ demo. This is a open source code project , so feel free to download the files
 for learning or add your own ideas to the project. Happy Coding!
 
 Terminal Operating System Teminology
-1) Vessel
+1) Vessel -- 
     A vessel comes and goes from a terminal based on a schedule delivering and collecting Units (containers).
     Units (containers) dry/reefers are loaded onto the vessel to either be discharged to a termainal or to be exported from a terminals.
-2) Units
+2) Units -- 
     Units also knows as containers hold goods to be delivered to a customer via the termainal. 
-3) Unit History
+3) Unit History -- 
     A Unit has needs to be tracked by it's history. Where was the unit first created, discharged and exported. Including the physical status of the unit.
 4) History
     A search tab or page is used to search for specific units by there container number.
@@ -19,7 +19,7 @@ How To Use The App
 
 1) Discharge Units
     On the vessels page with this route /vessels, one vessel is already uploaded for you to try out.
-    Doublec clicking the vessel will display the vessels details. Click the simulate discharge button to 
+    Double clicking the vessel will display the vessels details. Click the simulate discharge button to 
     simulate the discharging of units to the terminal.
 2) Viewing Units
     Upon simulating the discharge of units from the vessel, the units will be populated and can be viewed
